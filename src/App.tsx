@@ -37,12 +37,13 @@ export const App: FC =() =>{
 
 
   return (
-    <div>
+    <>
       <h1>簡単メモアプリ</h1>
       <input type="text" value={text} onChange={onChangeText} />
       <SButton onClick={onClickAdd}>追加</SButton>
 
       <SContainer>
+        <p>メモ一覧</p>
         <p>メモ一覧</p>
         <ul>
           {memos.map((memo, index) => (
@@ -55,7 +56,7 @@ export const App: FC =() =>{
           ))}
         </ul>
       </SContainer>
-    </div>
+    </>
   );
 };
 
