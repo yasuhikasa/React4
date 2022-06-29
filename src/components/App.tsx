@@ -1,6 +1,7 @@
-import { ChangeEvent, useState, FC, memo } from "react";
+import { ChangeEvent, useState, FC, useCallback } from "react";
 import styled from 'styled-components';
-import './App.css';
+import { MemoList } from "./MemoList";
+
 
 
 
@@ -27,13 +28,13 @@ export const App: FC =() =>{
 
 
   //[削除]ボタンを押下時(何番目が押されたかを引数で受け取る)
-  const onClickDelete = (index: number) => {
+  const onClickDelete = useCallback((index: number) => {
     //State変更を正常に検知させるため新たな配列を生成
     const newMemos = [...memos];
     //メモ配列から該当の要素を削除
     newMemos.splice(index, 1);
     setMemos(newMemos);
-  }
+  },[memos]);
 
 
   return (
@@ -41,8 +42,9 @@ export const App: FC =() =>{
       <h1>簡単メモアプリ</h1>
       <input type="text" value={text} onChange={onChangeText} />
       <SButton onClick={onClickAdd}>追加</SButton>
+      <MemoList memos={memos} onClickDelete={onClickDelete} />
 
-      <SContainer>
+     {/*  {<SContainer>
         <p>メモ一覧</p>
        
         <ul>
@@ -55,15 +57,16 @@ export const App: FC =() =>{
             </li>
           ))}
         </ul>
-      </SContainer>
+          </SContainer>} */}
     </>
   );
 };
 
-const SButton = styled.button`
+ const SButton = styled.button`
   margin-left: 16px;
 `;
 
+/*
 const SContainer = styled.div`
   border: solid 1px #ccc;
   padding: 16px;
@@ -73,6 +76,6 @@ const SContainer = styled.div`
 const SMemoWrapper = styled.div`
   display: flex;
   align-items: center;
-`
+` */
 
 export default App;
