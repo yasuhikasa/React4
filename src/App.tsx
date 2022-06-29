@@ -44,7 +44,7 @@ export const App: FC =() =>{
 
       <SContainer>
         <p>メモ一覧</p>
-        <p>メモ一覧</p>
+       
         <ul>
           {memos.map((memo, index) => (
             <li key={memo}>
