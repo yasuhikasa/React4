@@ -44,7 +44,7 @@ export const App: FC =() =>{
       <SButton onClick={onClickAdd}>追加</SButton>
       <MemoList memos={memos} onClickDelete={onClickDelete} />
 
-     {/*  {<SContainer>
+     {/*コメントアウト  {<SContainer>
         <p>メモ一覧</p>
        
         <ul>
@@ -66,7 +66,7 @@ export const App: FC =() =>{
   margin-left: 16px;
 `;
 
-/*
+/*コメントアウト
 const SContainer = styled.div`
   border: solid 1px #ccc;
   padding: 16px;
