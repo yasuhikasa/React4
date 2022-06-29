@@ -37,7 +37,7 @@ export const App: FC =() =>{
 
 
   return (
-    <>
+    <div>
       <h1>簡単メモアプリ</h1>
       <input type="text" value={text} onChange={onChangeText} />
       <SButton onClick={onClickAdd}>追加</SButton>
@@ -55,7 +55,7 @@ export const App: FC =() =>{
           ))}
         </ul>
       </SContainer>
-    </>
+    </div>
   );
 };
 
